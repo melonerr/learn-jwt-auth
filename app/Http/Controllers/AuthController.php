@@ -80,6 +80,7 @@ class AuthController extends Controller
     }
 
     public function createNewToken($token){
+        auth()->factory()->setTTL(60*24); //minutes
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
